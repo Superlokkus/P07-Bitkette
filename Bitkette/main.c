@@ -41,8 +41,13 @@ char* crtBitStr(unsigned int x)
     int i;
     
     for (i=0; i<sizeof(x)*8; i++) {
-        cresult[i] = (x & mask)+48;
-        x>>=1;
+        if (x & mask) {
+            cresult[i] = '1';
+        }
+        else{
+            cresult[i] = '0';
+        }
+        mask<<=1;
     }
     
     

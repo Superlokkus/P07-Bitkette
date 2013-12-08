@@ -40,7 +40,7 @@ char* crtBitStr(unsigned int x)
     
     int i;
     
-    for (i=0; i<sizeof(x)*CHAR_BIT; i++) {
+    for (i=sizeof(x)*CHAR_BIT-1; i >= 0; i--) {
         if (x & mask) {
             cresult[i] = '1';
         }

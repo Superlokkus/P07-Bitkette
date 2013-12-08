@@ -34,21 +34,22 @@ int main(int argc, const char * argv[])
 
 char* crtBitStr(unsigned int x)
 {
-    static char cresult[sizeof(x)*8+1];
+    static char cresult[sizeof(x)*CHAR_BIT+1];
     
-    int mask = 1;
+    unsigned int mask = 1;
     
     int i;
     
-    for (i=0; i<sizeof(x)*8; i++) {
+    for (i=0; i<sizeof(x)*CHAR_BIT; i++) {
         if (x & mask) {
-            cresult[sizeof(x)*8-i-1] = '1';
+            cresult[i] = '1';
         }
         else{
-            cresult[sizeof(x)*8-i-1] = '0';
+            cresult[i] = '0';
         }
         mask<<=1;
     }
+    
     
     
     return cresult;
